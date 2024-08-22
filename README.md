@@ -1,6 +1,6 @@
 # Food Truck Finder 🍔🚚
 
-🚨 **Before You Start:** Watch [this video](https://www.loom.com/share/273e4443da4c49bea026d95acb68e56d?sid=966fb020-02ae-4081-8aec-779f40734578) to see the whole process in action! 🎥
+🚨 **Before You Start:** Watch [this video](https://www.loom.com/share/efeb0a2b3f8142be84c27028e2c27ced?sid=4689bedc-0f34-4dd7-838c-2f5282475e89) to see the whole process in action! 🎥
 
 Welcome to the **Food Truck Finder** app, where we make sure no one in your company goes hungry! Built with the Phoenix framework and Elixir, this app is your go-to solution for finding the nearest food trucks when the lines are too long, or the food runs out at your current spot. Let’s make sure everyone gets their favorite snack without the hassle! 🌮🌭🍕🍟
 
