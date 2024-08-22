@@ -1,0 +1,201 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.landing-page {
+    background-image: url('/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.landing-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+.content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+.cute-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #ff6347;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cute-button:hover {
+    background-color: #ff4500;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+#map-locations {
+    padding: 20px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-form button {
+    height: 38px;
+    margin-top: 0.5rem;
+}
+
+.map-slideshow-container {
+    display: flex;
+    width: 100%;
+    height: 600px; /* Adjust height as needed */
+    display: flex;
+    position: relative;
+}
+
+.summary {
+    position: absolute;
+    left: 30px;
+    top: 80px;
+    z-index: 999;
+    color: black;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.map-container {
+    width: 70%;
+    height: 100%;
+    background-color: #e0e0e0; /* Placeholder for the map */
+}
+
+.right-panel {
+    width: 30%;
+    padding: 20px;
+    background-color: #f7f7f7;
+    overflow-y: auto;
+}
+
+#slideshow {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: #2c3e50; /* A dark blue-gray background */
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-content {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.slide-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.slide-content p {
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.title {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Default system fonts */
+    font-size: 3rem; /* Makes the text big */
+    font-weight: bold; /* Makes the text bold */
+    text-align: center; /* Centers the text horizontally */
+    color: #2c3e50; /* Sets a dark blue-gray color */
+    text-transform: uppercase; /* Transforms the text to uppercase */
+    letter-spacing: 2px; /* Adds spacing between letters */
+    background: linear-gradient(90deg, #f39c12, #d35400); /* Gradient background */
+    background-clip: text; /* Clips the background to the text */
+    -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+    animation: text-flicker 2s infinite alternate; /* Optional animation */
+}
+
+@keyframes text-flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .map-slideshow-container {
+        flex-direction: column; /* Stack map and slideshow vertically on mobile */
+        height: auto; /* Let height adjust based on content */
+    }
+
+    .map-container, .right-panel {
+        width: 100%;
+        height: 300px; /* Adjust height for mobile view */
+    }
+
+    #slideshow {
+        height: 100%; /* Adjust slideshow height for mobile view */
+    }
+}

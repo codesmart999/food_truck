@@ -1,0 +1,48 @@
+<%!-- <.order_form changeset={@changeset} action={~p"/orders"} /> --%>
+
+<div
+  id="map-locations"
+  phx-hook="MapLocationsHook"
+  data-filtered-locations={Jason.encode!(@filtered_locations)}
+  data-selected-location={Jason.encode!(@selected_location)}
+  data-locations={Jason.encode!(@locations)}
+  data-show-marks={@search}
+>
+  <h1 class="title">Find the nearest places for you!</h1>
+  <div>
+    <.form :let={f} for={@changeset} action={~p"/locations/search"}  class="search-form">
+        <.input type="select" prompt="Select Location" field={f[:address]} options={Enum.map(@locations, fn location -> location["Address"] end)} required />
+        <.input type="select" prompt="Select Number of Nearby Places" field={f[:nearest_place_count]} options={[1, 2, 5, 10]} />
+        <.button phx-disable-with="Searching...">Search</.button>
+    </.form>
+</div>
+  <!-- Container for map and slideshow -->
+  <div class="map-slideshow-container">
+      <%= if @summary != "none" do %>
+        <div class="summary">
+          <h2><%= @summary %></h2>
+        </div>
+      <% end %>
+      <!-- Map -->
+      <div id="map" class="map-container"></div>
+
+      <!-- Slideshow -->
+      <div class="right-panel">
+          <div id="slideshow">
+            <%= if is_list(@filtered_locations) do %>
+            <%= for location <- @filtered_locations do %>
+              <div class="slide" data-location-id={location["locationid"]}>
+                <div class="slide-content">
+                  <h2><%= location["Applicant"] %></h2>
+                  <p>Address: <%= location["Address"] %></p>
+                  <p>Food: <%= Enum.join(String.split(location["FoodItems"], ":"), ", ") %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <p>No locations available</p>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>
